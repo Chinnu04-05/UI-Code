@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 cap = cv2.VideoCapture(0)
-canvas = np.ones((480, 640, 3), dtype="uint8") * 255
+canvas = np.ones((480, 640, 3), dtype="uint8") * 125 # air canvas
 
 while True:
     ret, frame = cap.read()
@@ -25,6 +25,9 @@ while True:
     cv2.rectangle(frame, (350, 50), (475, 150), (0, 0, 255), -1)
     cv2.putText(frame, "Red", (400, 100), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color=(0, 0, 0), thickness=1)
 
+    # save button 
+    cv2.rectangle(frame, (475, 375), (600, 450), (255, 255, 255), -1)
+    cv2.putText(frame, "save", (525, 425), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color=(0, 0, 0), thickness=1)
 
     cv2.imshow("Frame", frame)
     cv2.imshow("Air Canvas", canvas)
